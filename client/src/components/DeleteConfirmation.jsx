@@ -2,7 +2,7 @@ import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/re
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import axios from 'axios'
 
-const DeleteConfirm = ({ open, setOpen, itemToDelete }) => {
+const DeleteConfirm = ({ open, setOpen, itemToDelete, content }) => {
 
   const onDeleteItem = async () => {
     await axios.delete(`http://localhost:3001/api/v1/authors`, {key: itemToDelete}) 
@@ -36,7 +36,7 @@ const DeleteConfirm = ({ open, setOpen, itemToDelete }) => {
                 </div>
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                   <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                    Delete discussion
+                    {content}
                   </DialogTitle>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
